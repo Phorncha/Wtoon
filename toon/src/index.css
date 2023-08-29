@@ -1,0 +1,489 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+/* Tablet and desktop styles */
+@media (min-width: 768px) {
+  body {
+    margin: 0;
+    padding: 0;
+    width: auto; /* Remove fixed width */
+    height: auto; /* Remove fixed height */
+    overflow: visible; /* Restore overflow behavior */
+  }
+}
+
+.container.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  min-height: 100vh;
+  padding-top: 20px; /* เพิ่มระยะขอบบน */
+  padding-bottom: 10px; /* เพิ่มระยะขอบล่าง */
+  padding-left: 20px; /* ไม่เพิ่มระยะขอบซ้าย */
+  padding-right: 20px; /* ไม่เพิ่มระยะขอบขวา */
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.input-row-model {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* จัดแนวตรงกลาง */
+  width: 100%;
+  margin-bottom: 20px; /* กำหนดระยะห่างของแถว */
+  flex: 1; /* ทำให้เต็มพื้นที่แนวนอน */
+}
+
+.input-row-model input {
+  margin-right: 10px;
+  margin: 0 10px;
+  background-color: #f9f9f9;
+  color: #000000;
+}
+
+.input-row-model label {
+  display: block; /* ทำให้ label เป็น element แบบ block เพื่อให้สามารถปรับความสูงได้ */
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 5px; /* เพิ่มระยะห่างด้านล่างของ label */
+}
+
+.input-row-model input:first-child {
+  margin-left: 10px; /* เพิ่มระยะห่างซ้ายของ input ทางด้านซ้ายสุด */
+}
+
+.input-row {
+  display: flex;
+  justify-content: center; /* จัดแนวตรงกลาง */
+  width: 100%;
+  margin-bottom: 20px; /* กำหนดระยะห่างของแถว */
+  flex: 1; /* ทำให้เต็มพื้นที่แนวนอน */
+}
+
+.input-row input {
+  margin-right: 10px; /* เพิ่มระยะห่างขวาของ input */
+  margin: 0 10px; /* กำหนดระยะห่างทั้งซ้ายและขวา */
+}
+
+.input-row input:first-child {
+  margin-left: 10px; /* เพิ่มระยะห่างซ้ายของ input ทางด้านซ้ายสุด */
+}
+
+.input-label {
+  width: 120px;
+  display: inline-block;
+  margin-right: 10px;
+  flex-shrink: 0;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* เปลี่ยนจาก flex-end เป็น flex-start */
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between; /* จัดเว้นระยะห่างระหว่างปุ่ม */
+  align-items: center; /* จัดให้ปุ่มอยู่ตรงกลางแนวตั้ง */
+  width: 100%; /* กำหนดความกว้างเท่ากับ container */
+  margin-top: 20px; /* กำหนดระยะห่างข้างบน */
+}
+
+.save-button,
+.delete-button {
+  width: calc(50% - 5px); /* กำหนดความกว้างของปุ่มให้เท่ากับครึ่งหนึ่งของความกว้าง container และห่างกันด้วยระยะห่าง 5px */
+  margin-left: 10px; /* ปรับระยะห่างของปุ่ม Delete จากปุ่ม Cancel */
+  margin-right: 10px
+}
+
+.delete-button {
+  background-color: #ff6e6e; /* กำหนดสีแดง */
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #b42828; /* สีเมื่อเมาส์อยู่ด้านบน */
+}
+
+.add-button,
+.cancel-button {
+  width: calc(50% - 5px); /* กำหนดความกว้างของปุ่มให้เท่ากับครึ่งหนึ่งของความกว้าง container และห่างกันด้วยระยะห่าง 5px */
+  margin-left: 10px; /* ปรับระยะห่างของปุ่ม Delete จากปุ่ม Cancel */
+  margin-right: 10px
+}
+
+.cancel-button {
+  background-color: #ff6e6e; /* กำหนดสีแดง */
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+  background-color: #b42828; /* สีเมื่อเมาส์อยู่ด้านบน */
+}
+
+/* CSS สำหรับ Modal */
+.react-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 300px; /* ปรับขนาดกว้างของ Modal */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center; /* เพิ่มสไตล์นี้เพื่อให้เนื้อหาอยู่ตรงกลางแนวนอน */
+}
+
+/* CSS สำหรับปุ่มใน Modal */
+/* ปรับแต่งสไตล์ของ Modal */
+.custom-modal {
+  position: fixed; /* ใช้ fixed เพื่อให้ Modal ตรงกลางหน้าจอ */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.95); /* ทำให้พื้นหลังของ Modal เบลอ */
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ปรับแต่งสไตล์ของ overlay */
+.custom-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ปรับแต่งสไตล์ของเนื้อหาใน Modal */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* จัดตำแหน่งแนวนอนกลาง */
+  justify-content: center; /* จัดตำแหน่งแนวตั้งกลาง */
+  text-align: center; /* จัดข้อความอยู่กลาง */
+  padding: 20px;
+  color: #000000;
+}
+
+.modal-content h2 {
+  margin-top: 2.5px; /* เพิ่มหรือลดระยะห่างด้านบนของ <h2> */
+  margin-bottom: 2.5px; /* เพิ่มหรือลดระยะห่างด้านล่างของ <h2> */
+  font-size: 30px; /* ปรับขนาดตัวอักษรใน <h2> ตามต้องการ */
+}
+
+.double-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px
+}
+
+/* CSS สำหรับปรับสไตล์ data1 */
+.double-column.data1 {
+  flex: 0.3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.double-column .input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.double-column .input-row label {
+  flex: 0 0 9%;
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+.double-column .input-row input,
+.double-column .input-row textarea {
+  flex: 1; /* กำหนดให้ input หรือ textarea ขยายเต็มพื้นที่ที่เหลือ */
+  padding: 8px;
+  margin: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 18px; /* ปรับขนาดตัวหนังสือใน label ใหญ่ขึ้น */
+}
+
+/* CSS สำหรับปรับระยะห่างและการจัดชิดซ้ายของแต่ละ checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin: 4px;
+}
+
+.checkbox input {
+  margin-right: 5px; /* เพิ่มระยะห่างขวาของช่อง checkbox */
+}
+
+.img-input-container {
+  margin: 20px 0;
+  cursor: pointer;
+  border: 2px solid #121212;
+  padding: 20px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  height: 315px;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 20px;
+  display: flex; /* เพิ่มคุณสมบัตินี้เพื่อใช้ Flexbox */
+  justify-content: center; /* จัดตำแหน่งแนวนอนกลาง */
+  align-items: center; /* จัดตำแหน่งแนวตั้งกลาง */
+}
+
+.img-input-container p {
+  color: black;
+}
+
+.file-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid #ccc; /* เปลี่ยนจาก dashed เป็น solid */
+  padding: 20px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  height: 315px;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 20px; /* เพิ่มความโค้งของเส้นขอบ */
+}
+
+.file-input-container:hover {
+  border-color: #ff1493;
+}
+
+.file-input-container img {
+  max-width: 100%;
+  max-height: 100%; /* ใช้สูงสุดเพื่อรักษาอัตราส่วน */
+  object-fit: contain;
+  margin-top: 10px;
+}
+
+.file-input-text {
+  font-size: 18px; /* ปรับขนาดตัวอักษรให้ใหญ่ขึ้น */
+  font-weight: bold; /* ตั้งตัวหนังสือให้ตัวหนา */
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+.column.full-width {
+  flex: 2;
+}
+
+.row.grid-container {
+  display: flex;
+  justify-content: center; /* เพิ่มส่วนนี้ */
+  width: 100%;
+}
+
+/* เพิ่มสไตล์สำหรับแสดงผลในรูปแบบ Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  place-items: center;
+  padding: 30px;
+  justify-content: center; /* เพิ่มส่วนนี้ */
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* จัดตำแหน่งแนวตั้งตรงกลาง */
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 15px;
+  transition: border-color 0.3s ease;
+  width: 240px;
+  height: 380px;
+}
+
+.grid-item:hover {
+  border-color: #ff1493; /* เปลี่ยนสีเส้นกรอบเมื่อเมาส์อยู่ด้านบน */
+  color: #ff1493; /* เปลี่ยนสีตัวอักษรเมื่อเมาส์อยู่ด้านบน */
+}
+
+.grid-item img {
+  width: 1000px; /* กำหนดความกว้างของรูปภาพ */
+  height: 1500px; /* กำหนดความสูงของรูปภาพ */
+  object-fit: contain; /* รูปภาพจะแสดงตามขนานที่กำหนดโดยไม่เปลี่ยนสัดส่วนหรือตัดขอบ */
+}
+
+.grid-item p {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.grid-item-add {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* จัดตำแหน่งแนวตั้งตรงกลาง */
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 15px;
+  transition: border-color 0.3s ease;
+  width: 240px;
+  height: 380px;
+}
+
+.grid-item-add:hover {
+  border-color: #ff1493; /* เปลี่ยนสีเส้นกรอบเมื่อเมาส์อยู่ด้านบน */
+  color: #ff1493; /* เปลี่ยนสีตัวอักษรเมื่อเมาส์อยู่ด้านบน */
+}
+
+.grid-item-add img {
+  width: 1000px; /* กำหนดความกว้างของรูปภาพ */
+  height: 1500px; /* กำหนดความสูงของรูปภาพ */
+  object-fit: contain; /* รูปภาพจะแสดงตามขนานที่กำหนดโดยไม่เปลี่ยนสัดส่วนหรือตัดขอบ */
+}
+
+.grid-item-add h2 {
+  margin-top: 10px;
+  font-size: 45px;
+}
+
+/* เพิ่มสไตล์สำหรับ dropdown ที่คุณสร้าง */
+.custom-dropdown {
+  width: 100%; /* กำหนดความกว้างเท่ากับพื้นที่ที่ใช้ได้ */
+  height: 40px; /* ปรับความสูงของ dropdown */
+  font-size: 16px; /* ปรับขนาดตัวหนังสือใน dropdown */
+  border: 1px solid #ccc; /* กำหนดเส้นขอบ */
+  border-radius: 4px; /* กำหนดการโค้งของมุม */
+  padding: 8px;
+  margin: 4px;
+}
+
+/* เพิ่มสไตล์สำหรับ label ของ dropdown */
+.dropdown-label {
+  font-size: 18px; /* ปรับขนาดตัวอักษรใน label */
+  margin-right: 10px; /* กำหนดระยะห่างขวาของ label */
+}
+
+/* เพิ่มสไตล์สำหรับเส้นแบ่งด้านล่าง */
+.divider {
+  width: 100%;
+  height: 1.5px;
+  background-color: #ccc;
+  margin-top: 20px; /* กำหนดระยะห่างของเส้นแบ่ง */
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* CSS สำหรับปรับขนาดและการแสดงผลของรูปภาพ */
+img {
+  max-width: 100%;
+  max-height: 300px; /* กำหนดความสูงสูงสุดของรูปภาพ */
+  object-fit: contain; /* แสดงผลรูปภาพให้เต็มพื้นที่โดยไม่เกิดการเสียหาย */
+}
+
+/* CSS สำหรับปรับขนาดของ input และ button */
+input[type="text"],
+button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* CSS สำหรับปรับสีพื้นหลังและขนาดของ button */
+button {
+  background-color: #ff1493;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color:	#d01076;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
