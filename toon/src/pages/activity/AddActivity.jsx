@@ -43,7 +43,7 @@ function AddActivity() {
             return;
         }
 
-        const storageRef = ref(storage, `img_Activity/${title}`);
+        const storageRef = ref(storage, `img_activity/${title}`);
 
         try {
             const snapshot = await uploadBytes(storageRef, selectedFile);
